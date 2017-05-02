@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <table>
+        <tr>
+            <th>
+                Username
+            </th>
+            <th>
+                Birthday
+            </th>
+        </tr>
+        {% for u in users %}
+       <tr>
+
+           <td>
+                {{ u.username }}
+           </td>
+            <td>
+                {{ u.dateofbirth|date('Y-m-d') }}
+            </td>
+            <td>
+                <a href="{{ path('useredit', { 'id': u.id })     }}">Edit</a>
+            </td>
+           <td>
+               <a href="{{ path('userdelete', { 'id': u.id })     }}">Delete</a>
+           </td>
+       </tr>
+        {% endfor%}
+    </table>
+{% endblock %}
