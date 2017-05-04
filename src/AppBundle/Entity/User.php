@@ -22,9 +22,27 @@ class User
      */
     private $id;
 
+          /**
+     * @var string
+     * @Assert\Regex(
+     *     pattern="/^[a-zA-Z]+$/i",
+       *   htmlPattern = "/[a-zA-Z]+ \d+/",
+     *     match=false,
+     *     message="Your username should be should be alphanumeric"
+     * )
+       * @Assert\NotBlank()
+     * @ORM\Column(name="username", type="string", length=255, unique=true)
+     */
+    private $username;
+
     /**
      * @var string
-     *
+     *   @Assert\Regex(
+     *     pattern="/^[a-zA-Z]+$/i",
+     *   htmlPattern = "/[a-zA-Z]+ \d+/",
+     *     match=false,
+     *     message="Your password should be alphanumeric"
+     * )
      * @ORM\Column(name="password", type="string", length=25)
      */
     private $password;
@@ -32,15 +50,15 @@ class User
     /**
      * @var string
      *@Assert\NotBlank()
-     * @ORM\Column(name="username", type="string", length=255, unique=true)
-     */
-    private $username;
-
-    /**
-     * @var string
-     *@Assert\NotBlank()
+     *   @Assert\Regex(
+     *     pattern="/^[a-zA-Z]+$/i",
+     *   htmlPattern = "/[a-zA-Z]+ \d+/",
+     *     match=false,
+     *     message="Your password should be alphanumeric"
+     * )
      * @ORM\Column(name="confirmpass", type="string", length=25)
      */
+
     private $confirmpass;
 
     /**
